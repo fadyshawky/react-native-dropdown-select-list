@@ -35,6 +35,8 @@ const SelectList: React.FC<SelectListProps> =  ({
         disabledItemStyles,
         disabledTextStyles,
         onSelect = () => {},
+        onOpen = () => {},
+        onClose = () => {},
         save = 'key',
         dropdownShown = false,
         fontFamily
@@ -56,7 +58,9 @@ const SelectList: React.FC<SelectListProps> =  ({
             duration:500,
             useNativeDriver:false,
             
-        }).start()
+        }).start(() => {
+            onOpen()
+        })
     }
     const slideup = () => {
         
@@ -65,7 +69,10 @@ const SelectList: React.FC<SelectListProps> =  ({
             duration:500,
             useNativeDriver:false,
             
-        }).start(() => setDropdown(false))
+        }).start(() => {
+            setDropdown(false)
+            onClose()
+        })
     }
 
     React.useEffect( () => {
