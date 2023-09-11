@@ -9,6 +9,16 @@ export interface SelectListProps  {
     setSelected: Function,
 
     /**
+    * Fn to run after opening the list
+    */
+    onOpen: Function,
+
+    /**
+    * Fn to run after closing the list
+    */
+    onClose: Function,
+
+    /**
     * Placeholder text that will be displayed in the select box
     */
     placeholder?: string,
